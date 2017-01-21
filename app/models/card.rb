@@ -4,6 +4,7 @@ class Card < ActiveRecord::Base
   validates :name, presence: :true
 
   belongs_to :user
+  has_many :listings
 
   def at_least_phone_or_email
     if [self.email, self.phone].reject(&:blank?).size == 0
